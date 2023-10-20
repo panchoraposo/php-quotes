@@ -260,7 +260,7 @@ objects:
     resources:
       requests:
         storage: 300Mi
-    storageClassName: gp2
+    storageClassName: nfs-storage
     volumeMode: Filesystem
 parameters:
 - name: APP_GIT_URL

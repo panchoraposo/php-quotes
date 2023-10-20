@@ -7,6 +7,7 @@
     }
 
     $query = "SELECT count(*) FROM quote";
+    echo $query;
     $result = $link->query($query);
     if (!$result) {
         http_response_code (500);

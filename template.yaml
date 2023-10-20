@@ -44,8 +44,8 @@ objects:
       sourceStrategy:
         from:
           kind: ImageStreamTag
-          name: cakephp-example
-          namespace: templates-review
+          name: php:7.3
+          namespace: openshift
       type: Source
     successfulBuildsHistoryLimit: 5
     triggers:

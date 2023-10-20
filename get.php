@@ -1,10 +1,21 @@
 <?php
-    $link = @mysqli_connect($_ENV["DATABASE_SERVICE_NAME"],$_ENV["DATABASE_USER"],$_ENV["DATABASE_PASSWORD"],$_ENV["DATABASE_NAME"]);
-    if (!$link) {
-        http_response_code (500);
-        error_log ("Error: unable to connect to database\n");
-	die();
+    define("DB_HOST", $_ENV["DATABASE_SERVICE_NAME"]);
+    define("DB_USERNAME", $_ENV["DATABASE_USER"]);
+    define("DB_PASSWORD", $_ENV["DATABASE_PASSWORD"]);
+    define("DB_DATABASE_NAME", $_ENV["DATABASE_NAME"]);
+
+    $link = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD);
+    if ($link->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
+    echo "Connected successfully";
+
+    #$link = @mysqli_connect($_ENV["DATABASE_SERVICE_NAME"],$_ENV["DATABASE_USER"],$_ENV["DATABASE_PASSWORD"],$_ENV["DATABASE_NAME"]);
+    #if (!$link) {
+    #    http_response_code (500);
+    #    error_log ("Error: unable to connect to database\n");
+	#die();
+    #}
 
     $query = "SELECT count(*) FROM quote";
     echo $query;
